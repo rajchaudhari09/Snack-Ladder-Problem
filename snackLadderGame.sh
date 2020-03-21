@@ -4,3 +4,11 @@ echo  "==============: WELCOME TO THE SNACK LADDER GAME :=================="
 
 #Declaring Variable
 start_Point=0
+
+#Function For Die Roll The Number Player 1 To 6 Randomly
+function rollDies()
+{
+	dieRoll=$((RANDOM%6+1))
+	echo "dieroll is the $dieRoll"
+}
+rollDies
