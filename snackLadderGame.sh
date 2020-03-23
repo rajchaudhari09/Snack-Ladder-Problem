@@ -38,14 +38,15 @@ function toCheck()
 }
 
 #Condition For Repeat Till The Player Reaches The Winning Position
-while [ $point -le $win_Point ]
+while [[ $point -ne $win_Point ]]
 do
 	toCheck
-done
+	#Condition For Check Player Position Moves Below 0
+	if [ $point -lt 0 ]
+	then
+       		point=$start_Point
+	fi
 
-#Condition For Check Player Position Moves Below 0
-if [ $point -le 0 ]
-then
-	point=$start_Point
-fi
-	echo $point
+done
+echo $point
+
