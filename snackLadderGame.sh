@@ -3,6 +3,7 @@
 echo "===================================================================="
 echo "==============: WELCOME TO THE SNACK LADDER GAME :=================="
 echo "===================================================================="
+
 #Constant 
 numberOfPlay=0
 ladder=1
@@ -29,24 +30,30 @@ function toCheck()
 			0)
 				point=$point ;;
 			1)
-				point=$(($point+diesGeneratedNumber)) ;;
+				point=$(($point+$diesGeneratedNumber)) ;;
 			2)
-				point=$(($point-diesGeneratedNumber)) ;;
+				point=$(($point-$diesGeneratedNumber)) ;;
 			*)
 				echo "Enter The Choies Properly.." ;;
 		esac
 }
 
 #Condition For Repeat Till The Player Reaches The Winning Position
-while [[ $point -ne $win_Point ]]
+while [[ $point -lt $win_Point ]]
 do
+	#Calling The toCheck Function
 	toCheck
+
 	#Condition For Check Player Position Moves Below 0
 	if [ $point -lt 0 ]
 	then
        		point=$start_Point
-	fi
 
+	elif [ $point -gt $win_Point ]
+	then
+		point=$(($point-$diesGeneratedNumber))
+	fi
+	echo $point
 done
-echo $point
+
 
