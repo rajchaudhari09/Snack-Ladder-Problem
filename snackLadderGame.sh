@@ -14,6 +14,7 @@ win_Point=100
 
 #Declaring Variable
 point=0
+diesCount=0
 
 #Function For Die Roll The Number Player 1 To 6 Randomly
 function rollDies()
@@ -27,6 +28,8 @@ function toCheck()
 {
 	checkOption=$(($RANDOM%3))
 	diesGeneratedNumber=$(rollDies)
+	#Increment The Dies Count
+	((diesCount++))
 		case $checkOption in
 			0)
 				point=$point ;;
@@ -54,7 +57,8 @@ do
 	then
 		point=$(($point-$diesGeneratedNumber))
 	fi
-	echo $point
+	#Print The DiesCount And Player Position
+	echo "DiesCounter No Is:$diesCount Player Position is: $point"
 done
 
 
